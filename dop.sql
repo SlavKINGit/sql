@@ -1,11 +1,7 @@
-CREATE TABLE IF NOT EXISTS chiefs(
-	chief_id int PRIMARY KEY,
-	chief_name text NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS employees(
-	emloyee_id int PRIMARY KEY,
-	employee_name text NOT NULL,
-	emloyee_departament text NOT NULL,
-	chief int REFERENCES chiefs(chief_id)
+CREATE TABLE IF NOT EXISTS employees_chiefs(
+	employee_id INT PRIMARY KEY,
+	employee_name VARCHAR(255) NOT NULL,
+	employee_departament VARCHAR(255) NOT NULL,
+	chief_id INT,
+	FOREIGN KEY (chief_id) REFERENCES employees_chiefs(employee_id)
 )
