@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS performers_albums(
 CREATE TABLE IF NOT EXISTS tracks(
 	track_id serial PRIMARY KEY,
 	track_name TEXT NOT NULL UNIQUE,
-	duration int NOT NULL,
+	duration_sec int NOT NULL,
 	album_id int REFERENCES albums(album_id)
 );
 
@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS collection(
 );
 
 CREATE TABLE IF NOT EXISTS track_collection(
+	track_collection_id serial PRIMARY KEY,
 	track_id int NOT NULL REFERENCES tracks(track_id),
 	collection_id int NOT NULL REFERENCES collection(collection_id)
-)
+);
